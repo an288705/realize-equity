@@ -22,7 +22,7 @@ export default function ProductHero() {
         alt="increase priority"
       />
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        Enhance your portfolie with real estate
+        Enhance your portfolio with real estate
       </Typography>
       <Typography
         color="inherit"
