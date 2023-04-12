@@ -18,13 +18,13 @@ function ProductValues() {
     <div>
       <Box
         component="section"
-        sx={{ display: 'flex', justifyContent: 'center',overflow: 'hidden', bgcolor: 'secondary.light' }}
+        sx={{ display: 'flex', justifyContent: 'center',overflow: 'hidden', bgcolor: 'common.white' }}
       >
         Investment Opportunities
       </Box>
       <Box
         component="section"
-        sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
+        sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'common.white' }}
       >
         <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
           <Box
@@ -42,8 +42,11 @@ function ProductValues() {
                   alt="suitcase"
                   sx={{ height: 55 }}
                 />
-                <Typography variant="h6" sx={{ my: 5 }}>
-                  The best luxury hotel
+                <Typography variant="h6" >
+                  The Centra NYC
+                </Typography>
+                <Typography variant="h6" >
+                  Location: New York NY
                 </Typography>
                 <Typography variant="h5">
                   {
@@ -64,8 +67,11 @@ function ProductValues() {
                   alt="graph"
                   sx={{ height: 55 }}
                 />
-                <Typography variant="h6" sx={{ my: 5 }}>
-                  New experiences
+                <Typography variant="h6" >
+                  The Centra NYC
+                </Typography>
+                <Typography variant="h6" >
+                  Location: New York NY
                 </Typography>
                 <Typography variant="h5">
                   {
@@ -84,8 +90,11 @@ function ProductValues() {
                   alt="clock"
                   sx={{ height: 55 }}
                 />
-                <Typography variant="h6" sx={{ my: 5 }}>
-                  Exclusive rates
+                <Typography variant="h6" >
+                  The Centra NYC
+                </Typography>
+                <Typography variant="h6" >
+                  Location: New York NY
                 </Typography>
                 <Typography variant="h5">
                   {'By registering, you will access specially negotiated rates '}
