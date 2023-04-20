@@ -24,11 +24,11 @@ import Typography from '../components/Typography';
 //   my: 4,
 // };
 
-function ProductHowItWorks() {
+function ProductDescription() {
   return (
     <Box
       component="section"
-      sx={{ display: 'flex', bgcolor: 'common.white', overflow: 'hidden' }}
+      sx={{ display: 'flex', bgcolor: 'secondary.light', overflow: 'hidden' }}
     >
       <Container
         sx={{
@@ -52,14 +52,19 @@ function ProductHowItWorks() {
           }}
         />
         <Typography variant="h4" marked="center" component="h2" sx={{ mb: 14 }}>
-          Real Estate Results
+            What is real estate crowdfunding?
         </Typography>
         <div>
-          Insert table here
+            Real estate crowdfunding enables a group of investors to combine their funds and invest 
+            in larger real estate projects than would be accessible individually. Through a crowdfunding 
+            deal, you and other investors can buy a fraction of ownership in a property or real estate 
+            project, much like owning stocks in a corporation. The accumulated capital is then used to 
+            construct, renovate, or finance the property, with the goal of producing a return on investment 
+            for each investor.
         </div>
       </Container>
     </Box>
   );
 }
 
-export default ProductHowItWorks;
+export default ProductDescription;
