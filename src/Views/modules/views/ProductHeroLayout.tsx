@@ -9,11 +9,6 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
-  [theme.breakpoints.up('sm')]: {
-    height: '80vh',
-    minHeight: 500,
-    maxHeight: 1300,
-  },
 }));
 
 const Background = styled(Box)({
@@ -40,19 +35,13 @@ export default function ProductHeroLayout(
     <ProductHeroLayoutRoot>
       <Container
         sx={{
-          mt: 3,
-          mb: 14,
+          mt: 10,
+          mb: 5,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <img
-          src="/static/themes/onepirate/productHeroWonder.png"
-          alt="wonder"
-          width="147"
-          height="80"
-        />
         {children}
         <Box
           sx={{
@@ -67,14 +56,6 @@ export default function ProductHeroLayout(
           }}
         />
         <Background sx={sxBackground} />
-        <Box
-          component="img"
-          src="/static/themes/onepirate/productHeroArrowDown.png"
-          height="16"
-          width="12"
-          alt="arrow down"
-          sx={{ position: 'absolute', bottom: 32 }}
-        />
       </Container>
     </ProductHeroLayoutRoot>
   );
