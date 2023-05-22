@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
-import Home from './Views/Home';
-import SignIn from './Views/SignIn';
-import SignUp from './Views/SignUp';
+import Home from './views/Home';
+import SignIn from './views/SignIn';
+import SignUp from './views/SignUp';
 import './App.css';
 
 function App() {
