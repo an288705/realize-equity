@@ -11,7 +11,7 @@ import RFTextField from './modules/form/RFTextField';
 import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import withRoot from './modules/withRoot';
-import supabase from '../supabase/supabase';
+//import supabase from '../supabase/supabase';
 
 function SignIn() {
   const [sent, setSent] = React.useState(false);
@@ -30,7 +30,7 @@ function SignIn() {
   };
 
   const handleSubmit = (input: { email: string, password: string }) => {
-    
+
     setSent(true);
   };
 

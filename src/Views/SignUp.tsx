@@ -12,9 +12,12 @@ import RFTextField from './modules/form/RFTextField';
 import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import withRoot from './modules/withRoot';
+import supabase from '../supabase/supabase';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [sent, setSent] = React.useState(false);
+  const navigate = useNavigate();
 
   const validate = (values: { [index: string]: string }) => {
     const errors = required(['firstName', 'lastName', 'email', 'password'], values);
@@ -29,7 +32,29 @@ function SignUp() {
     return errors;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    const { data, error } = await supabase.auth.signUp(
+      {
+        email: 'example@email.com',
+        password: 'example-password',
+      }
+    );
+
+    if(error) {
+      alert(error);
+      return;
+    }
+
+    if(!data.user) {
+      alert("issue signing up user");
+      return;
+    }
+
+    await supabase
+      .from('userProfile')
+      .insert({userId: data.user.id, cashBalance: 0, sharesBalance: 0, bankInfo: null})
+
+    navigate('/premium-themes/onepirate/dashboard/', { replace: true });
     setSent(true);
   };
 
