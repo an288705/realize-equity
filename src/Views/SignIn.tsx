@@ -11,7 +11,7 @@ import RFTextField from './modules/form/RFTextField';
 import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import withRoot from './modules/withRoot';
-//import supabase from '../supabase/supabase';
+import supabase from '../supabase/supabase';
 
 function SignIn() {
   const [sent, setSent] = React.useState(false);
@@ -29,7 +29,23 @@ function SignIn() {
     return errors;
   };
 
-  const handleSubmit = (input: { email: string, password: string }) => {
+  const handleSubmit = async (input: { email: string, password: string }) => {
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: input.email,
+      password: input.password,
+    })
+
+    if(error) {
+      alert(error);
+      return;
+    }
+
+    if(!data.user) {
+      alert("issue signing in user");
+      return;
+    }
+
 
     setSent(true);
   };

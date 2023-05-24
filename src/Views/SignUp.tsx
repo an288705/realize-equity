@@ -32,11 +32,11 @@ function SignUp() {
     return errors;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (input: { email: string, password: string }) => {
     const { data, error } = await supabase.auth.signUp(
       {
-        email: 'example@email.com',
-        password: 'example-password',
+        email: input.email,
+        password: input.password,
       }
     );
 
@@ -46,7 +46,7 @@ function SignUp() {
     }
 
     if(!data.user) {
-      alert("issue signing up user");
+      alert("Issue fetching user");
       return;
     }
 
