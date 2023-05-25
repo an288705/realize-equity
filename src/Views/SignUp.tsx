@@ -13,11 +13,11 @@ import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import withRoot from './modules/withRoot';
 import supabase from '../supabase/supabase';
-import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../controllers/contexts';
 
 function SignUp() {
   const [sent, setSent] = React.useState(false);
-  const navigate = useNavigate();
+  const user = React.useContext(UserContext);
 
   const validate = (values: { [index: string]: string }) => {
     const errors = required(['firstName', 'lastName', 'email', 'password'], values);
@@ -50,11 +50,24 @@ function SignUp() {
       return;
     }
 
+    if(!data.user.email) {
+      alert("Issue assigning email");
+      return;
+    }
+
+    user.setUser(
+      data.user.id,
+      data.user.email,
+      '',
+      0,
+      0
+    )
+
     await supabase
       .from('userProfile')
-      .insert({userId: data.user.id, cashBalance: 0, sharesBalance: 0, bankInfo: null})
+      .insert({userId: data.user.id, bankInfo: '', cashBalance: 0, sharesBalance: 0})
 
-    navigate('/premium-themes/onepirate/dashboard/', { replace: true });
+    alert("Please confirm email to create account");
     setSent(true);
   };
 

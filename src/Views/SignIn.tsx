@@ -12,9 +12,13 @@ import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import withRoot from './modules/withRoot';
 import supabase from '../supabase/supabase';
+import { UserContext } from '../controllers/contexts';
+import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
   const [sent, setSent] = React.useState(false);
+  const user = React.useContext(UserContext);
+  const navigate = useNavigate();
 
   const validate = (values: { [index: string]: string }) => {
     const errors = required(['email', 'password'], values);
@@ -31,22 +35,45 @@ function SignIn() {
 
   const handleSubmit = async (input: { email: string, password: string }) => {
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
       email: input.email,
       password: input.password,
     })
 
-    if(error) {
-      alert(error);
+    if(authError) {
+      alert(authError);
       return;
     }
 
-    if(!data.user) {
+    if(!authData.user) {
       alert("issue signing in user");
       return;
     }
 
+    if(!authData.user.email) {
+      alert("user email not saved");
+      return;
+    }
 
+    const { data, error } = await supabase
+      .from('userProfile')
+      .select()
+      .eq('userId',authData.user.id);
+
+    if(!data) {
+      alert(error)
+      return;
+    }
+
+    user.setUser(
+      authData.user.id,
+      authData.user.email,
+      data[0].bankInfo,
+      data[0].cashaBalance,
+      data[0].sharesBalance
+    )
+
+    navigate('/premium-themes/onepirate/dashboard/', { replace: true });
     setSent(true);
   };
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import { UserModel } from './models/UserModel';
+import { UserContext } from './controllers/contexts';
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
 import Home from './views/Home';
 import SignIn from './views/SignIn';
@@ -7,6 +9,7 @@ import DashBoard from './views/Dashboard';
 import './App.css';
 
 function App() {
+  const user = new UserModel();
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/premium-themes/onepirate/">
@@ -19,7 +22,9 @@ function App() {
   );
 
   return (
-    <RouterProvider router={router} />
+    <UserContext.Provider value={user}>
+      <RouterProvider router={router} />
+    </UserContext.Provider>
   );
 }
 

@@ -1,12 +1,4 @@
-type userObject = {
-    userId: string;
-    email: string;
-    bankInfo: string;
-    cashBalance: number;
-    sharesBalance: number;
-}
-
-export class User{
+export class UserModel{
     public userId: string;
     public email: string;
     public bankInfo: string;
@@ -21,11 +13,11 @@ export class User{
         this.sharesBalance = 0;
     }
 
-    setUser = (user: userObject) => {
-        this.userId = user.userId;
-        this.email = user.email;
-        this.bankInfo = user.bankInfo;
-        this.cashBalance = user.cashBalance;
-        this.sharesBalance = user.sharesBalance;
+    setUser = (userId: string, email: string, bankInfo: string, cashBalance: number, sharesBalance: number) => {
+        this.userId = userId;
+        this.email = email;
+        this.bankInfo = bankInfo;
+        this.cashBalance = cashBalance;
+        this.sharesBalance = sharesBalance;
     }
 }
