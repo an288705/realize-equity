@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 import Home from './views/Home';
 import SignIn from './views/SignIn';
 import SignUp from './views/SignUp';
-import DashBoard from './views/Dashboard';
+import DashBoard from './views/dashboard/Dashboard';
 import './App.css';
 
 function App() {
