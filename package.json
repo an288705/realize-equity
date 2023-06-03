@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@devexpress/dx-react-chart": "^4.0.4",
-    "@devexpress/dx-react-chart-material-ui": "^4.0.4",
-    "@devexpress/dx-react-core": "^4.0.4",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
@@ -25,6 +22,7 @@
     "react-final-form": "^6.5.9",
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
+    "recharts": "^2.6.2",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
