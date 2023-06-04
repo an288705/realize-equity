@@ -7,8 +7,9 @@ import SignIn from './views/SignIn';
 import SignUp from './views/SignUp';
 import DashBoard from './views/dashboard/Dashboard';
 import './App.css';
-import InvestPage from './views/dashboard/InvestPage';
 import AccountChart from './views/dashboard/AccountChart';
+import InvestPage from './views/dashboard/InvestPage';
+import AddFundsPage from './views/dashboard/AddFundsPage';
 
 function App() {
   const user = new UserModel();
@@ -20,6 +21,7 @@ function App() {
         <Route path="/premium-themes/onepirate/sign-up/" element={<SignUp/>}/>
         <Route path="/premium-themes/onepirate/dashboard/" element={<DashBoard page={<AccountChart/>}/>}/>
         <Route path="/premium-themes/onepirate/dashboard/invest" element={<DashBoard page={<InvestPage/>} />}/>
+        <Route path="/premium-themes/onepirate/dashboard/add-funds" element={<DashBoard page={<AddFundsPage/>} />}/>
       </Route>
     )
   );

@@ -16,7 +16,8 @@ import { Link } from 'react-router-dom';
 
 const pages = [
     {text: 'Account', href: '/premium-themes/onepirate/dashboard/'}, 
-    {text: 'Invest', href: '/premium-themes/onepirate/dashboard/invest'}
+    {text: 'Invest', href: '/premium-themes/onepirate/dashboard/invest'},
+    {text: 'Add Funds', href: '/premium-themes/onepirate/dashboard/add-funds'}
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
