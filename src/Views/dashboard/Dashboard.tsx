@@ -1,16 +1,12 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../../controllers/contexts';
 import Navbar from './Navbar';
-import AccountChart from './AccountChart';
 
-export default function DashBoard() {
-    const user = useContext(UserContext);
-
+export default function DashBoard(props: { page: JSX.Element }) {
     return (
         <>
           <Navbar />
-          <>Logged In: {user.email}</>
-          <AccountChart />
+          {
+            props.page
+          }
         </>
       );
 }
