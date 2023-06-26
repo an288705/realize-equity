@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { Field, Form, FormSpy } from 'react-final-form';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Typography from './modules/components/Typography';
-import AppFooter from './modules/views/AppFooter';
-import AppAppBar from './modules/views/AppAppBar';
-import AppForm from './modules/views/AppForm';
-import { email, required } from './modules/form/validation';
-import RFTextField from './modules/form/RFTextField';
-import FormButton from './modules/form/FormButton';
-import FormFeedback from './modules/form/FormFeedback';
-import withRoot from './modules/withRoot';
-import supabase from '../supabase/supabase';
-import { UserContext } from '../controllers/contexts';
-import { useNavigate } from 'react-router-dom';
+import * as React from "react";
+import { Field, Form, FormSpy } from "react-final-form";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Typography from "./modules/components/Typography";
+import AppFooter from "./modules/views/AppFooter";
+import AppAppBar from "./modules/views/AppAppBar";
+import AppForm from "./modules/views/AppForm";
+import { email, required } from "./modules/form/validation";
+import RFTextField from "./modules/form/RFTextField";
+import FormButton from "./modules/form/FormButton";
+import FormFeedback from "./modules/form/FormFeedback";
+import withRoot from "./modules/withRoot";
+import supabase from "../supabase/supabase";
+import { UserContext } from "../controllers/contexts";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
   const [sent, setSent] = React.useState(false);
@@ -21,7 +21,7 @@ function SignIn() {
   const navigate = useNavigate();
 
   const validate = (values: { [index: string]: string }) => {
-    const errors = required(['email', 'password'], values);
+    const errors = required(["email", "password"], values);
 
     if (!errors.email) {
       const emailError = email(values.email);
@@ -33,35 +33,35 @@ function SignIn() {
     return errors;
   };
 
-  const handleSubmit = async (input: { email: string, password: string }) => {
+  const handleSubmit = async (input: { email: string; password: string }) => {
+    const { data: authData, error: authError } =
+      await supabase.auth.signInWithPassword({
+        email: input.email,
+        password: input.password,
+      });
 
-    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-      email: input.email,
-      password: input.password,
-    })
-
-    if(authError) {
+    if (authError) {
       alert(authError);
       return;
     }
 
-    if(!authData.user) {
+    if (!authData.user) {
       alert("issue signing in user");
       return;
     }
 
-    if(!authData.user.email) {
+    if (!authData.user.email) {
       alert("user email not saved");
       return;
     }
 
     const { data, error } = await supabase
-      .from('userProfile')
+      .from("userProfile")
       .select()
-      .eq('userId',authData.user.id);
+      .eq("userId", authData.user.id);
 
-    if(!data) {
-      alert(error)
+    if (!data) {
+      alert(error);
       return;
     }
 
@@ -71,9 +71,9 @@ function SignIn() {
       data[0].bankInfo,
       data[0].cashaBalance,
       data[0].sharesBalance
-    )
+    );
 
-    navigate('/premium-themes/onepirate/dashboard/', { replace: true });
+    navigate("/premium-themes/onepirate/dashboard/", { replace: true });
     setSent(true);
   };
 
@@ -86,7 +86,7 @@ function SignIn() {
             Sign In
           </Typography>
           <Typography variant="body2" align="center">
-            {'Not a member yet? '}
+            {"Not a member yet? "}
             <Link
               href="/premium-themes/onepirate/sign-up/"
               align="center"
@@ -102,7 +102,12 @@ function SignIn() {
           validate={validate}
         >
           {({ handleSubmit: handleSubmit2, submitting }) => (
-            <Box component="form" onSubmit={handleSubmit2} noValidate sx={{ mt: 6 }}>
+            <Box
+              component="form"
+              onSubmit={handleSubmit2}
+              noValidate
+              sx={{ mt: 6 }}
+            >
               <Field
                 autoComplete="email"
                 autoFocus
@@ -143,13 +148,16 @@ function SignIn() {
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Sign In'}
+                {submitting || sent ? "In progress…" : "Sign In"}
               </FormButton>
             </Box>
           )}
         </Form>
         <Typography align="center">
-          <Link underline="always" href="/premium-themes/onepirate/forgot-password/">
+          <Link
+            underline="always"
+            href="/premium-themes/onepirate/forgot-password/"
+          >
             Forgot password?
           </Link>
         </Typography>

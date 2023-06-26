@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box, { BoxProps as MuiBoxProps } from '@mui/material/Box';
-import Typography from '../components/Typography';
+import * as React from "react";
+import { experimentalStyled as styled } from "@mui/material/styles";
+import Box, { BoxProps as MuiBoxProps } from "@mui/material/Box";
+import Typography from "../components/Typography";
 
 interface FormFeedbackProps extends MuiBoxProps {
   error?: boolean;
@@ -9,7 +9,7 @@ interface FormFeedbackProps extends MuiBoxProps {
 }
 
 const BoxStyled = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'error' && prop !== 'success',
+  shouldForwardProp: (prop) => prop !== "error" && prop !== "success",
 })<FormFeedbackProps>(({ theme, error, success }) => ({
   padding: theme.spacing(2),
   ...(error && {
@@ -23,12 +23,17 @@ const BoxStyled = styled(Box, {
 }));
 
 function FormFeedback(
-  props: React.HTMLAttributes<HTMLDivElement> & FormFeedbackProps,
+  props: React.HTMLAttributes<HTMLDivElement> & FormFeedbackProps
 ) {
   const { className, children, error, success, ...others } = props;
 
   return (
-    <BoxStyled error={error} success={success} className={className} {...others}>
+    <BoxStyled
+      error={error}
+      success={success}
+      className={className}
+      {...others}
+    >
       <Typography color="inherit">{children}</Typography>
     </BoxStyled>
   );

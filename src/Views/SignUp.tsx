@@ -1,26 +1,29 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import { Field, Form, FormSpy } from 'react-final-form';
-import Typography from './modules/components/Typography';
-import AppFooter from './modules/views/AppFooter';
-import AppAppBar from './modules/views/AppAppBar';
-import AppForm from './modules/views/AppForm';
-import { email, required } from './modules/form/validation';
-import RFTextField from './modules/form/RFTextField';
-import FormButton from './modules/form/FormButton';
-import FormFeedback from './modules/form/FormFeedback';
-import withRoot from './modules/withRoot';
-import supabase from '../supabase/supabase';
-import { UserContext } from '../controllers/contexts';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
+import { Field, Form, FormSpy } from "react-final-form";
+import Typography from "./modules/components/Typography";
+import AppFooter from "./modules/views/AppFooter";
+import AppAppBar from "./modules/views/AppAppBar";
+import AppForm from "./modules/views/AppForm";
+import { email, required } from "./modules/form/validation";
+import RFTextField from "./modules/form/RFTextField";
+import FormButton from "./modules/form/FormButton";
+import FormFeedback from "./modules/form/FormFeedback";
+import withRoot from "./modules/withRoot";
+import supabase from "../supabase/supabase";
+import { UserContext } from "../controllers/contexts";
 
 function SignUp() {
   const [sent, setSent] = React.useState(false);
   const user = React.useContext(UserContext);
 
   const validate = (values: { [index: string]: string }) => {
-    const errors = required(['firstName', 'lastName', 'email', 'password'], values);
+    const errors = required(
+      ["firstName", "lastName", "email", "password"],
+      values
+    );
 
     if (!errors.email) {
       const emailError = email(values.email);
@@ -32,40 +35,37 @@ function SignUp() {
     return errors;
   };
 
-  const handleSubmit = async (input: { email: string, password: string }) => {
-    const { data, error } = await supabase.auth.signUp(
-      {
-        email: input.email,
-        password: input.password,
-      }
-    );
+  const handleSubmit = async (input: { email: string; password: string }) => {
+    const { data, error } = await supabase.auth.signUp({
+      email: input.email,
+      password: input.password,
+    });
 
-    if(error) {
+    if (error) {
       alert(error);
       return;
     }
 
-    if(!data.user) {
+    if (!data.user) {
       alert("Issue fetching user");
       return;
     }
 
-    if(!data.user.email) {
+    if (!data.user.email) {
       alert("Issue assigning email");
       return;
     }
 
-    user.setUser(
-      data.user.id,
-      data.user.email,
-      '',
-      0,
-      0
-    )
+    user.setUser(data.user.id, data.user.email, "", 0, 0);
 
     await supabase
-      .from('userProfile')
-      .insert({userId: data.user.id, bankInfo: '', cashBalance: 0, sharesBalance: 0})
+      .from("userProfile")
+      .insert({
+        userId: data.user.id,
+        bankInfo: "",
+        cashBalance: 0,
+        sharesBalance: 0,
+      });
 
     alert("Please confirm email to create account");
     setSent(true);
@@ -91,7 +91,12 @@ function SignUp() {
           validate={validate}
         >
           {({ handleSubmit: handleSubmit2, submitting }) => (
-            <Box component="form" onSubmit={handleSubmit2} noValidate sx={{ mt: 6 }}>
+            <Box
+              component="form"
+              onSubmit={handleSubmit2}
+              noValidate
+              sx={{ mt: 6 }}
+            >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <Field
@@ -153,7 +158,7 @@ function SignUp() {
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Sign Up'}
+                {submitting || sent ? "In progress…" : "Sign Up"}
               </FormButton>
             </Box>
           )}

@@ -1,14 +1,14 @@
-import './App.css';
-import { UserModel } from './models/UserModel';
-import { UserContext } from './controllers/contexts';
-import RoutesProvider from './configs/routesProvider';
+import "./App.css";
+import { UserModel } from "./models/UserModel";
+import { UserContext } from "./controllers/contexts";
+import RoutesProvider from "./configs/routesProvider";
 
 function App() {
   const user = new UserModel();
 
   return (
     <UserContext.Provider value={user}>
-      <RoutesProvider/>
+      <RoutesProvider />
     </UserContext.Provider>
   );
 }

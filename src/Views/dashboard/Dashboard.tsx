@@ -1,12 +1,10 @@
-import Navbar from './Navbar';
+import Navbar from "./Navbar";
 
 export default function DashBoard(props: { page: JSX.Element }) {
-    return (
-        <>
-          <Navbar />
-          {
-            props.page
-          }
-        </>
-      );
+  return (
+    <>
+      <Navbar />
+      {props.page}
+    </>
+  );
 }

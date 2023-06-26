@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 // import { Theme } from '@mui/material/styles';
 // import { SxProps } from '@mui/system';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '../components/Typography';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "../components/Typography";
 
 // const item: SxProps<Theme> = {
 //   display: 'flex',
@@ -28,16 +28,16 @@ function ProductHowItWorks() {
   return (
     <Box
       component="section"
-      sx={{ display: 'flex', bgcolor: 'secondary.light', overflow: 'hidden' }}
+      sx={{ display: "flex", bgcolor: "secondary.light", overflow: "hidden" }}
     >
       <Container
         sx={{
           mt: 10,
           mb: 15,
-          position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <Box
@@ -45,8 +45,8 @@ function ProductHowItWorks() {
           src="/static/themes/onepirate/productCurvyLines.png"
           alt="curvy lines"
           sx={{
-            pointerEvents: 'none',
-            position: 'absolute',
+            pointerEvents: "none",
+            position: "absolute",
             top: -180,
             opacity: 0.7,
           }}
@@ -54,9 +54,7 @@ function ProductHowItWorks() {
         <Typography variant="h4" marked="center" component="h2" sx={{ mb: 14 }}>
           Real Estate Results
         </Typography>
-        <div>
-          Insert table here
-        </div>
+        <div>Insert table here</div>
       </Container>
     </Box>
   );
