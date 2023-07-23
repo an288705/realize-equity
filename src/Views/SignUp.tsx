@@ -58,14 +58,12 @@ function SignUp() {
 
     user.setUser(data.user.id, data.user.email, "", 0, 0);
 
-    await supabase
-      .from("userProfile")
-      .insert({
-        userId: data.user.id,
-        bankInfo: "",
-        cashBalance: 0,
-        sharesBalance: 0,
-      });
+    await supabase.from("userProfile").insert({
+      userId: data.user.id,
+      bankInfo: "",
+      cashBalance: 0,
+      sharesBalance: 0,
+    });
 
     alert("Please confirm email to create account");
     setSent(true);

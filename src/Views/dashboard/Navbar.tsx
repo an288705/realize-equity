@@ -19,7 +19,7 @@ const pages = [
   { text: "Invest", href: "/premium-themes/onepirate/dashboard/invest" },
   { text: "Add Funds", href: "/premium-themes/onepirate/dashboard/add-funds" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -44,6 +44,14 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  function handleClickMenuItem(setting: string) {
+    if (setting === "Logout")
+      window.location.replace("/premium-themes/onepirate");
+    else
+      window.location.replace("/premium-themes/onepirate/dashboard/" + setting);
+    setAnchorElUser(null);
+  }
 
   return (
     <AppBar position="static">
@@ -169,7 +177,10 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem
+                  key={setting}
+                  onClick={() => handleClickMenuItem(setting)}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
