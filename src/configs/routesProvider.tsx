@@ -6,6 +6,7 @@ import DashBoard from "../views/dashboard/Dashboard";
 import AccountChart from "../views/dashboard/AccountChart";
 import InvestPage from "../views/dashboard/InvestPage";
 import AddFundsPage from "../views/dashboard/AddFundsPage";
+import TransactionsPage from "../views/dashboard/TransactionsPage";
 import ProfilePage from "../views/dashboard/ProfilePage";
 
 export default function RoutesProvider() {
@@ -26,6 +27,10 @@ export default function RoutesProvider() {
         <Route
           path="/premium-themes/onepirate/dashboard/add-funds"
           element={<DashBoard page={<AddFundsPage />} />}
+        />
+        <Route
+          path="/premium-themes/onepirate/dashboard/transactions"
+          element={<DashBoard page={<TransactionsPage />} />}
         />
         <Route
           path="/premium-themes/onepirate/dashboard/profile"
