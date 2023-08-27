@@ -18,7 +18,10 @@ const pages = [
   { text: "Account", href: "/premium-themes/onepirate/dashboard/" },
   { text: "Invest", href: "/premium-themes/onepirate/dashboard/invest" },
   { text: "Add Funds", href: "/premium-themes/onepirate/dashboard/add-funds" },
-  { text: "Transactions", href: "/premium-themes/onepirate/dashboard/transactions" },
+  {
+    text: "Transactions",
+    href: "/premium-themes/onepirate/dashboard/transactions",
+  },
 ];
 const settings = ["Profile", "Logout"];
 

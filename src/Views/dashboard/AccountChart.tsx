@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import {
   LineChart,
   Line,
@@ -7,56 +9,44 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 import { UserContext } from "../../controllers/contexts";
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "Day A",
+    value: 4000,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "Day B",
+    value: 3000,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "Day C",
+    value: 2000,
   },
   {
-    name: "Page D",
-    uv: 2780,
+    name: "Day D",
+    value: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "Day E",
+    value: 1890,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "Day F",
+    value: 2390,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "Day G",
+    value: 3490,
   },
 ];
 
 export default function AccountChart() {
+  const [chartState, setChartState] = React.useState<string>("Monthly");
   const user = React.useContext(UserContext);
 
   return (
@@ -77,15 +67,42 @@ export default function AccountChart() {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line
-          type="monotone"
-          dataKey="pv"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-        />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="value" stroke="#82ca9d" />
       </LineChart>
+      <div>
+        <Button
+          key="Daily"
+          onClick={() => {
+            setChartState("Daily");
+          }}
+          sx={{ my: 2, color: "Black" }}
+        >
+          <Typography textAlign="center">Daily</Typography>
+        </Button>
+        <Button
+          key="Weekly"
+          onClick={() => {
+            setChartState("Weekly");
+          }}
+          sx={{ my: 2, color: "Black" }}
+        >
+          <Typography textAlign="center">Weekly</Typography>
+        </Button>
+        <Button
+          key="Monthly"
+          onClick={() => {
+            setChartState("Monthly");
+          }}
+          sx={{ my: 2, color: "Black" }}
+        >
+          <Typography textAlign="center">Monthly</Typography>
+        </Button>
+      </div>
       <div>Account val {user.cashBalance + user.sharesBalance}</div>
+      <div>{`${chartState} returns: ${(
+        (data[data.length - 1].value / data[data.length - 2].value - 1) *
+        100
+      ).toFixed(2)}%`}</div>
     </div>
   );
 }

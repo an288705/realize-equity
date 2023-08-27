@@ -1,7 +1,7 @@
 import "./App.css";
 import { UserModel } from "./models/UserModel";
 import { UserContext } from "./controllers/contexts";
-import RoutesProvider from "./configs/routesProvider";
+import RoutesProvider from "./configs/RoutesProvider";
 
 function App() {
   const user = new UserModel();
