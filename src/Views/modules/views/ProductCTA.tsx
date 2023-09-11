@@ -38,10 +38,10 @@ function ProductCTA() {
               sx={{ maxWidth: 400 }}
             >
               <Typography variant="h2" component="h2" gutterBottom>
-                Receive offers
+                Want to learn more?
               </Typography>
               <Typography variant="h5">
-                Taste the holidays of the everyday close to home.
+                Join our mail list for more info on real estate investing. Receive up to date information on our new and existing listings and opportunities
               </Typography>
               <TextField
                 noBorder
@@ -75,7 +75,7 @@ function ProductCTA() {
               bottom: 0,
               width: "100%",
               background:
-                "url(/static/themes/onepirate/productCTAImageDots.png)",
+                "",
             }}
           />
           <Box

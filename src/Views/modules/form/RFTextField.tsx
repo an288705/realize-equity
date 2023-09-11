@@ -1,9 +1,9 @@
 import * as React from "react";
 import { FieldRenderProps } from "react-final-form";
-import TextField, { OnePirateTextFieldProps } from "../components/TextField";
+import TextField, { HomeProps } from "../components/TextField";
 
 function RFTextField(
-  props: OnePirateTextFieldProps & FieldRenderProps<string, HTMLElement>
+  props: HomeProps & FieldRenderProps<string, HTMLElement>
 ) {
   const {
     autoComplete,

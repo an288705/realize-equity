@@ -73,7 +73,7 @@ function SignIn() {
       data[0].sharesBalance
     );
 
-    navigate("/premium-themes/onepirate/dashboard/", { replace: true });
+    navigate("/dashboard/", { replace: true });
     setSent(true);
   };
 
@@ -88,7 +88,7 @@ function SignIn() {
           <Typography variant="body2" align="center">
             {"Not a member yet? "}
             <Link
-              href="/premium-themes/onepirate/sign-up/"
+              href="/sign-up/"
               align="center"
               underline="always"
             >
@@ -156,7 +156,7 @@ function SignIn() {
         <Typography align="center">
           <Link
             underline="always"
-            href="/premium-themes/onepirate/forgot-password/"
+            href="/forgot-password/"
           >
             Forgot password?
           </Link>

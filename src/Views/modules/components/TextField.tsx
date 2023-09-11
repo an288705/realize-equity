@@ -9,16 +9,16 @@ import { selectClasses } from "@mui/material/Select";
 import { inputLabelClasses } from "@mui/material/InputLabel";
 
 const inputStyleMappingClasses = {
-  small: "OnePirateTextField-inputSizeSmall",
-  medium: "OnePirateTextField-inputSizeMedium",
-  large: "OnePirateTextField-inputSizeLarge",
-  xlarge: "OnePirateTextField-inputSizeXLarge",
+  small: "Home-inputSizeSmall",
+  medium: "Home-inputSizeMedium",
+  large: "Home-inputSizeLarge",
+  xlarge: "Home-inputSizeXLarge",
 };
 
 const classes = {
-  root: "OnePirateTextField-root",
-  input: "OnePirateTextField-input",
-  inputBorder: "OnePirateTextField-inputBorder",
+  root: "Home-root",
+  input: "Home-input",
+  inputBorder: "Home-inputBorder",
 };
 
 const styles = ({ theme }: { theme: Theme }) => ({
@@ -74,13 +74,13 @@ const styles = ({ theme }: { theme: Theme }) => ({
   },
 });
 
-export interface OnePirateTextFieldProps
+export interface HomeProps
   extends Omit<FilledTextFieldProps | StandardTextFieldProps, "size"> {
   noBorder?: boolean;
   size?: "small" | "medium" | "large" | "xlarge";
 }
 
-function TextField(props: OnePirateTextFieldProps) {
+function TextField(props: HomeProps) {
   const {
     InputProps = {},
     InputLabelProps,

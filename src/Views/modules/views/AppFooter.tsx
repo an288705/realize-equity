@@ -61,7 +61,7 @@ export default function AppFooter() {
               <Grid item sx={{ display: "flex" }}>
                 <Box component="a" href="https://mui.com/" sx={iconStyle}>
                   <img
-                    src="/static/themes/onepirate/appFooterFacebook.png"
+                    src=""
                     alt="Facebook"
                   />
                 </Box>
@@ -71,7 +71,7 @@ export default function AppFooter() {
                   sx={iconStyle}
                 >
                   <img
-                    src="/static/themes/onepirate/appFooterTwitter.png"
+                    src=""
                     alt="Twitter"
                   />
                 </Box>
@@ -87,10 +87,10 @@ export default function AppFooter() {
             </Typography>
             <Box component="ul" sx={{ m: 0, listStyle: "none", p: 0 }}>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="/premium-themes/onepirate/terms/">Terms</Link>
+                <Link href="/terms/">Terms</Link>
               </Box>
               <Box component="li" sx={{ py: 0.5 }}>
-                <Link href="/premium-themes/onepirate/privacy/">Privacy</Link>
+                <Link href="/privacy/">Privacy</Link>
               </Box>
             </Box>
           </Grid>

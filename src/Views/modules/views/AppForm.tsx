@@ -10,7 +10,7 @@ export default function AppForm(props: React.HTMLAttributes<HTMLDivElement>) {
     <Box
       sx={{
         display: "flex",
-        backgroundImage: "url(/static/onepirate/appCurvyLines.png)",
+        backgroundImage: "",
         backgroundRepeat: "no-repeat",
       }}
     >

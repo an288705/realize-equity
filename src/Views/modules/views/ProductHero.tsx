@@ -42,7 +42,7 @@ export default function ProductHero() {
             <Box sx={item}>
               <Box
                 component="img"
-                src="/static/themes/onepirate/productValues1.svg"
+                src=""
                 alt="suitcase"
                 sx={{ height: 55 }}
               />
@@ -63,7 +63,7 @@ export default function ProductHero() {
             <Box sx={item}>
               <Box
                 component="img"
-                src="/static/themes/onepirate/productValues2.svg"
+                src=""
                 alt="graph"
                 sx={{ height: 55 }}
               />
@@ -82,7 +82,7 @@ export default function ProductHero() {
             <Box sx={item}>
               <Box
                 component="img"
-                src="/static/themes/onepirate/productValues3.svg"
+                src=""
                 alt="clock"
                 sx={{ height: 55 }}
               />

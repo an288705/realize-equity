@@ -18,7 +18,7 @@ export default function InvestPage() {
           <ButtonBase
             onClick={() =>
               window.location.replace(
-                `/premium-themes/onepirate/dashboard/invest/order?asset=${asset.title}`
+                `/dashboard/invest/order?asset=${asset.title}`
               )
             }
           >

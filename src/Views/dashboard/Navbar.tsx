@@ -15,12 +15,12 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
 const pages = [
-  { text: "Account", href: "/premium-themes/onepirate/dashboard/" },
-  { text: "Invest", href: "/premium-themes/onepirate/dashboard/invest" },
-  { text: "Add Funds", href: "/premium-themes/onepirate/dashboard/add-funds" },
+  { text: "Account", href: "/dashboard/" },
+  { text: "Invest", href: "/dashboard/invest" },
+  { text: "Add Funds", href: "/dashboard/add-funds" },
   {
     text: "Transactions",
-    href: "/premium-themes/onepirate/dashboard/transactions",
+    href: "/dashboard/transactions",
   },
 ];
 const settings = ["Profile", "Logout"];
@@ -51,9 +51,9 @@ function ResponsiveAppBar() {
 
   function handleClickMenuItem(setting: string) {
     if (setting === "Logout")
-      window.location.replace("/premium-themes/onepirate");
+      window.location.replace("/");
     else
-      window.location.replace("/premium-themes/onepirate/dashboard/" + setting);
+      window.location.replace("/dashboard/" + setting);
     setAnchorElUser(null);
   }
 
