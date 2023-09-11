@@ -2,9 +2,7 @@ import * as React from "react";
 import { FieldRenderProps } from "react-final-form";
 import TextField, { HomeProps } from "../components/TextField";
 
-function RFTextField(
-  props: HomeProps & FieldRenderProps<string, HTMLElement>
-) {
+function RFTextField(props: HomeProps & FieldRenderProps<string, HTMLElement>) {
   const {
     autoComplete,
     input,

@@ -40,12 +40,7 @@ export default function ProductHero() {
         <Grid container spacing={5}>
           <Grid item xs={12} md={4}>
             <Box sx={item}>
-              <Box
-                component="img"
-                src=""
-                alt="suitcase"
-                sx={{ height: 55 }}
-              />
+              <Box component="img" src="" alt="suitcase" sx={{ height: 55 }} />
               <Typography variant="h6">The Centra NYC</Typography>
               <Typography variant="h6">Location: New York NY</Typography>
               <Typography variant="h5">
@@ -61,12 +56,7 @@ export default function ProductHero() {
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={item}>
-              <Box
-                component="img"
-                src=""
-                alt="graph"
-                sx={{ height: 55 }}
-              />
+              <Box component="img" src="" alt="graph" sx={{ height: 55 }} />
               <Typography variant="h6">The Centra NYC</Typography>
               <Typography variant="h6">Location: New York NY</Typography>
               <Typography variant="h5">
@@ -80,12 +70,7 @@ export default function ProductHero() {
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={item}>
-              <Box
-                component="img"
-                src=""
-                alt="clock"
-                sx={{ height: 55 }}
-              />
+              <Box component="img" src="" alt="clock" sx={{ height: 55 }} />
               <Typography variant="h6">The Centra NYC</Typography>
               <Typography variant="h6">Location: New York NY</Typography>
               <Typography variant="h5">

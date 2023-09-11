@@ -50,10 +50,8 @@ function ResponsiveAppBar() {
   };
 
   function handleClickMenuItem(setting: string) {
-    if (setting === "Logout")
-      window.location.replace("/");
-    else
-      window.location.replace("/dashboard/" + setting);
+    if (setting === "Logout") window.location.replace("/");
+    else window.location.replace("/dashboard/" + setting);
     setAnchorElUser(null);
   }
 

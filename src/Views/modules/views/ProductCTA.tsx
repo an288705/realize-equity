@@ -41,7 +41,9 @@ function ProductCTA() {
                 Want to learn more?
               </Typography>
               <Typography variant="h5">
-                Join our mail list for more info on real estate investing. Receive up to date information on our new and existing listings and opportunities
+                Join our mail list for more info on real estate investing.
+                Receive up to date information on our new and existing listings
+                and opportunities
               </Typography>
               <TextField
                 noBorder
@@ -74,8 +76,7 @@ function ProductCTA() {
               right: 0,
               bottom: 0,
               width: "100%",
-              background:
-                "",
+              background: "",
             }}
           />
           <Box

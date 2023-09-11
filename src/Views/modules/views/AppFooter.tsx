@@ -60,20 +60,14 @@ export default function AppFooter() {
             >
               <Grid item sx={{ display: "flex" }}>
                 <Box component="a" href="https://mui.com/" sx={iconStyle}>
-                  <img
-                    src=""
-                    alt="Facebook"
-                  />
+                  <img src="" alt="Facebook" />
                 </Box>
                 <Box
                   component="a"
                   href="https://twitter.com/MUI_hq"
                   sx={iconStyle}
                 >
-                  <img
-                    src=""
-                    alt="Twitter"
-                  />
+                  <img src="" alt="Twitter" />
                 </Box>
               </Grid>
               <Grid item>
