@@ -67,7 +67,16 @@ function SignIn() {
 
     user.setUser(
       authData.user.id,
+      "",
       authData.user.email,
+      data[0].phone,
+      {
+        street: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        country: "",
+      },
       data[0].bankInfo,
       data[0].cashaBalance,
       data[0].sharesBalance

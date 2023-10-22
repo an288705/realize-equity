@@ -56,7 +56,22 @@ function SignUp() {
       return;
     }
 
-    user.setUser(data.user.id, data.user.email, "", 0, 0);
+    user.setUser(
+      data.user.id,
+      "",
+      data.user.email,
+      data.user.phone || "",
+      {
+        street: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        country: "",
+      },
+      "",
+      0,
+      0
+    );
 
     await supabase.from("userProfile").insert({
       userId: data.user.id,

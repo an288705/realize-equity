@@ -69,7 +69,7 @@ export default function TransferPage() {
             label="Bank"
             onChange={handleFromChange}
           >
-            {accounts.filter((account) => account.props.value != toForm)}
+            {accounts.filter((account) => account.props.value !== toForm)}
           </Select>
         </FormControl>
         <FormControl fullWidth>
@@ -81,7 +81,7 @@ export default function TransferPage() {
             label="Bank"
             onChange={handleToChange}
           >
-            {accounts.filter((account) => account.props.value != fromForm)}
+            {accounts.filter((account) => account.props.value !== fromForm)}
           </Select>
         </FormControl>
         <Button variant="contained" onClick={submit}>
