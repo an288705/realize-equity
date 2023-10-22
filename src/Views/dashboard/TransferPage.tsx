@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import {
   Box,
   TextField,
@@ -8,11 +8,15 @@ import {
   Select,
   Button,
 } from "@mui/material";
+import { UserContext } from "../../controllers/contexts";
 
 export default function TransferPage() {
-  const [funds, setFunds] = useState<number>(0);
-  const [bank, setBank] = useState<string>("chase");
-  const banks: any[] = [
+  const [funds, setFunds] = React.useState<number>(0);
+  const [fromForm, setFromForm] = React.useState<string>("chase");
+  const [toForm, setToForm] = React.useState<string>("account");
+  const user = React.useContext(UserContext);
+  const accounts: any[] = [
+    <MenuItem value={"account"}>{`Account ${user.totalBalance}`}</MenuItem>,
     <MenuItem value={"chase"}>Chase</MenuItem>,
     <MenuItem value={"wellsFargo"}>Wells Fargo</MenuItem>,
   ];
@@ -21,8 +25,12 @@ export default function TransferPage() {
     setFunds(e.target.value);
   }
 
-  function handleSelectChange(e: any) {
-    setBank(e.target.value);
+  function handleFromChange(e: any) {
+    setFromForm(e.target.value);
+  }
+
+  function handleToChange(e: any) {
+    setToForm(e.target.value);
   }
 
   function submit() {
@@ -33,7 +41,7 @@ export default function TransferPage() {
 
     if (window.confirm("Are you sure you want to add funds to your account?")) {
       console.log(funds);
-      console.log(bank);
+      console.log(fromForm);
       alert("Added funds");
     }
   }
@@ -53,15 +61,27 @@ export default function TransferPage() {
           onChange={handleFundsChange}
         />
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Bank</InputLabel>
+          <InputLabel id="demo-simple-select-label">From</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             defaultValue={"chase"}
             id="demo-simple-select"
             label="Bank"
-            onChange={handleSelectChange}
+            onChange={handleFromChange}
           >
-            {banks}
+            {accounts.filter((account) => account.props.value != toForm)}
+          </Select>
+        </FormControl>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">To</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            defaultValue={"account"}
+            id="demo-simple-select"
+            label="Bank"
+            onChange={handleToChange}
+          >
+            {accounts.filter((account) => account.props.value != fromForm)}
           </Select>
         </FormControl>
         <Button variant="contained" onClick={submit}>

@@ -1,4 +1,5 @@
 import React from "react";
+import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import {
@@ -51,6 +52,18 @@ export default function AccountChart() {
 
   return (
     <div>
+      <Grid container>
+        <Grid item>
+          <div>Account val {user.totalBalance}</div>
+        </Grid>
+        <Grid item>
+          <Button
+            onClick={() => window.location.replace(`/dashboard/transfer`)}
+          >
+            Add funds
+          </Button>
+        </Grid>
+      </Grid>
       <LineChart
         width={500}
         height={300}
@@ -98,7 +111,6 @@ export default function AccountChart() {
           <Typography textAlign="center">Monthly</Typography>
         </Button>
       </div>
-      <div>Account val {user.cashBalance + user.sharesBalance}</div>
       <div>{`${chartState} returns: ${(
         (data[data.length - 1].value / data[data.length - 2].value - 1) *
         100

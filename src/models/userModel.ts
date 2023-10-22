@@ -4,6 +4,7 @@ export class UserModel {
   public bankInfo: string;
   public cashBalance: number;
   public sharesBalance: number;
+  public totalBalance: number;
 
   constructor() {
     this.userId = "";
@@ -11,6 +12,7 @@ export class UserModel {
     this.bankInfo = "";
     this.cashBalance = 0;
     this.sharesBalance = 0;
+    this.totalBalance = 0;
   }
 
   setUser = (
@@ -25,5 +27,6 @@ export class UserModel {
     this.bankInfo = bankInfo;
     this.cashBalance = cashBalance;
     this.sharesBalance = sharesBalance;
+    this.totalBalance = this.cashBalance + this.sharesBalance;
   };
 }
