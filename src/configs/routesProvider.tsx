@@ -6,7 +6,7 @@ import DashBoard from "../views/dashboard/Dashboard";
 import AccountChart from "../views/dashboard/AccountChart";
 import InvestPage from "../views/dashboard/InvestPage";
 import OrderPage from "../views/components/OrderPage";
-import AddFundsPage from "../views/dashboard/AddFundsPage";
+import TransferPage from "../views/dashboard/TransferPage";
 import TransactionsPage from "../views/dashboard/TransactionsPage";
 import ProfilePage from "../views/dashboard/ProfilePage";
 
@@ -30,8 +30,8 @@ export default function RoutesProvider() {
           element={<DashBoard page={<OrderPage />} />}
         />
         <Route
-          path="/dashboard/add-funds"
-          element={<DashBoard page={<AddFundsPage />} />}
+          path="/dashboard/transfer"
+          element={<DashBoard page={<TransferPage />} />}
         />
         <Route
           path="/dashboard/transactions"

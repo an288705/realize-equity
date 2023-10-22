@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 const pages = [
   { text: "Account", href: "/dashboard/" },
   { text: "Invest", href: "/dashboard/invest" },
-  { text: "Add Funds", href: "/dashboard/add-funds" },
+  { text: "Transfer", href: "/dashboard/transfer" },
   {
     text: "Transactions",
     href: "/dashboard/transactions",

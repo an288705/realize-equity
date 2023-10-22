@@ -9,7 +9,7 @@ import {
   Button,
 } from "@mui/material";
 
-export default function AddFundsPage() {
+export default function TransferPage() {
   const [funds, setFunds] = useState<number>(0);
   const [bank, setBank] = useState<string>("chase");
   const banks: any[] = [
@@ -49,7 +49,7 @@ export default function AddFundsPage() {
       <div>
         <TextField
           id="outlined"
-          label="Add Funds"
+          label="Transfer"
           onChange={handleFundsChange}
         />
         <FormControl fullWidth>
