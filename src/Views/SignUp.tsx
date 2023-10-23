@@ -1,6 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import { Field, Form, FormSpy } from "react-final-form";
 import Typography from "./modules/components/Typography";
@@ -21,7 +20,18 @@ function SignUp() {
 
   const validate = (values: { [index: string]: string }) => {
     const errors = required(
-      ["firstName", "lastName", "email", "password"],
+      [
+        "email",
+        "password",
+        "fullLegalName",
+        "phone",
+        "address",
+        "city",
+        "state",
+        "zipCode",
+        "country",
+        "ssn",
+      ],
       values
     );
 
@@ -35,7 +45,18 @@ function SignUp() {
     return errors;
   };
 
-  const handleSubmit = async (input: { email: string; password: string }) => {
+  const handleSubmit = async (input: {
+    address: string;
+    city: string;
+    country: string;
+    email: string;
+    fullLegalName: string;
+    password: string;
+    phone: string;
+    ssn: string;
+    state: string;
+    zipCode: string;
+  }) => {
     const { data, error } = await supabase.auth.signUp({
       email: input.email,
       password: input.password,
@@ -60,13 +81,13 @@ function SignUp() {
       data.user.id,
       "",
       data.user.email,
-      data.user.phone || "",
+      input.phone,
       {
-        street: "",
-        city: "",
-        state: "",
-        zipCode: "",
-        country: "",
+        street: input.address,
+        city: input.city,
+        state: input.state,
+        zipCode: input.zipCode,
+        country: input.country,
       },
       "",
       0,
@@ -75,6 +96,13 @@ function SignUp() {
 
     await supabase.from("userProfile").insert({
       userId: data.user.id,
+      phone: input.phone,
+      street: input.address,
+      city: input.city,
+      state: input.state,
+      zipCode: input.zipCode,
+      country: input.country,
+      ssn: input.ssn,
       bankInfo: "",
       cashBalance: 0,
       sharesBalance: 0,
@@ -110,31 +138,6 @@ function SignUp() {
               noValidate
               sx={{ mt: 6 }}
             >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    autoFocus
-                    component={RFTextField}
-                    disabled={submitting || sent}
-                    autoComplete="given-name"
-                    fullWidth
-                    label="First name"
-                    name="firstName"
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    component={RFTextField}
-                    disabled={submitting || sent}
-                    autoComplete="family-name"
-                    fullWidth
-                    label="Last name"
-                    name="lastName"
-                    required
-                  />
-                </Grid>
-              </Grid>
               <Field
                 autoComplete="email"
                 component={RFTextField}
@@ -155,6 +158,80 @@ function SignUp() {
                 label="Password"
                 type="password"
                 margin="normal"
+              />
+              <Field
+                autoFocus
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="given-name"
+                fullWidth
+                label="Full Legal Name"
+                name="fullLegalName"
+                required
+              />
+              <Field
+                autoFocus
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="phone"
+                fullWidth
+                label="Phone Number"
+                name="phone"
+                required
+              />
+              <Field
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="address"
+                fullWidth
+                label="Street Address"
+                name="address"
+                required
+              />
+              <Field
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="city"
+                fullWidth
+                label="City"
+                name="city"
+                required
+              />
+              <Field
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="state"
+                fullWidth
+                label="State"
+                name="state"
+                required
+              />
+              <Field
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="zip-code"
+                fullWidth
+                label="Zip Code"
+                name="zipCode"
+                required
+              />
+              <Field
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="country"
+                fullWidth
+                label="Country"
+                name="country"
+                required
+              />
+              <Field
+                component={RFTextField}
+                disabled={submitting || sent}
+                autoComplete="ssn"
+                fullWidth
+                label="SSN"
+                name="ssn"
+                required
               />
               <FormSpy subscription={{ submitError: true }}>
                 {({ submitError }) =>
