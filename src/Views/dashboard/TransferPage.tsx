@@ -12,6 +12,7 @@ import { UserContext } from "../../controllers/contexts";
 
 export default function TransferPage() {
   const [funds, setFunds] = React.useState<number>(0);
+  const [isDeposit, setIsDeposit] = React.useState<boolean>(true);
   const [fromForm, setFromForm] = React.useState<string>("chase");
   const [toForm, setToForm] = React.useState<string>("account");
   const user = React.useContext(UserContext);
@@ -26,11 +27,14 @@ export default function TransferPage() {
   }
 
   function handleFromChange(e: any) {
-    setFromForm(e.target.value);
+    const src = e.target.value;
+    src !== "account" ? setIsDeposit(true) : setIsDeposit(false);
+    setFromForm(src);
   }
 
   function handleToChange(e: any) {
-    setToForm(e.target.value);
+    const src = e.target.value;
+    setToForm(src);
   }
 
   function submit() {
@@ -64,24 +68,26 @@ export default function TransferPage() {
           <InputLabel id="demo-simple-select-label">From</InputLabel>
           <Select
             labelId="demo-simple-select-label"
-            defaultValue={"chase"}
+            defaultValue={fromForm}
             id="demo-simple-select"
             label="Bank"
             onChange={handleFromChange}
           >
-            {accounts.filter((account) => account.props.value !== toForm)}
+            {accounts}
           </Select>
         </FormControl>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">To</InputLabel>
           <Select
             labelId="demo-simple-select-label"
-            defaultValue={"account"}
+            defaultValue={toForm}
             id="demo-simple-select"
             label="Bank"
             onChange={handleToChange}
           >
-            {accounts.filter((account) => account.props.value !== fromForm)}
+            {isDeposit
+              ? accounts.filter((src) => src.props.value === "account")
+              : accounts.filter((src) => src.props.value !== "account")}
           </Select>
         </FormControl>
         <Button variant="contained" onClick={submit}>
